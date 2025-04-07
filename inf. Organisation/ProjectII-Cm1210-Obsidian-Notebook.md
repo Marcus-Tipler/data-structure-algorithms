@@ -93,3 +93,57 @@ def quickSort(arr,low,high):
         quickSort(arr, pi+1, high)
 ```
 
+----
+
+Problem with RECURSIVE FUNCTION: Research shows the following.
+
+
+The recursive QuickSort algorithm on large arrays causes StackOverflow error.
+
+Try the non-recursive one from [this link](http://alienryderflex.com/quicksort/). Following Java code is converted from original c code, hope it helps.
+
+```java
+static final int MAX_LEVELS = 1000;
+
+public static boolean quickSort(int[] arr, int elements) {
+    int i=0,L,R,pivot;
+    int[] beg = new int[MAX_LEVELS], end = new int[MAX_LEVELS];
+    beg[0]=0;
+    end[0]=elements;
+    while(i>=0) {
+        L=beg[i];
+        R=end[i]-1;
+        if(L<R) {
+            pivot=arr[L]; if(i==MAX_LEVELS-1) return false;
+            while(L<R) {
+                while(arr[R]>=pivot&&L<R) R--; if(L<R) arr[L++]=arr[R];
+                while(arr[L]<=pivot&&L<R) L++; if(L<R) arr[R--]=arr[L];
+            }
+            arr[L]=pivot;
+            beg[i+1]=L+1;
+            end[i+1]=end[i];
+            end[i++]=L;
+        } else {
+            i--;
+        }
+    }
+    return true;
+}
+// an example
+public static void main(String[] args) {
+    // construct the integer array
+    int[] arr = new int[80000];
+    for(int i=0;i<arr.length;i++) {
+        arr[i]=(int)Math.random()*100000;
+    }
+
+    // sort the array
+    quickSort(arr, arr.length);
+}
+```
+
+It's time-saving and stackoverflow-immune.
+
+https://stackoverflow.com/questions/33884057/quick-sort-stackoverflow-error-for-large-arrays
+
+https://alienryderflex.com/quicksort/
