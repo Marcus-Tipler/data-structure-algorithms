@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class sortQuick {
-
+    // ----------------------------------------------------------------
+    // Declares values for quick sort and reversed quick sort methods.
+    // ----------------------------------------------------------------
     public static List<Integer> sorterQuick(List<Integer> listItems) {
         List<Integer> database = new ArrayList<>(listItems);
         if (database.size() < 2) {
@@ -15,8 +17,6 @@ public class sortQuick {
             return database;
         }
     }
-
-
     public static List<Integer> sorterQuickReversed(List<Integer> listItems) {
         List<Integer> database = new ArrayList<>(listItems);
         if (database.size() < 2) {
@@ -31,6 +31,10 @@ public class sortQuick {
     }
 
 
+    // ----------------------------------------------------------------
+    // Hoare partition method for quick sort (has two sides).
+    // This has both methods for reverse and normal quick sort.
+    // ----------------------------------------------------------------
     public static void hoarePartition(List<Integer> database, int leftBound, int rightBound) {
         if (leftBound >= rightBound)
 			return; // indices have crossed;
@@ -45,7 +49,6 @@ public class sortQuick {
 				rightInd--;
 			}
 			if (leftInd < rightInd) { // both elements were found so swap
-
 				Swap(database, leftInd, rightInd);
 			}
 		} // loop continues until indices cross
@@ -53,8 +56,6 @@ public class sortQuick {
 		hoarePartition(database, leftBound, leftInd - 1); // left recursive call
 		hoarePartition(database, leftInd + 1, rightBound); // right recursive call
 	}
-
-
     public static void hoarePartitionReverse(List<Integer> database, int leftBound, int rightBound) {
         if (leftBound >= rightBound)
 			return; // indices have crossed;
@@ -69,7 +70,6 @@ public class sortQuick {
 				rightInd--;
 			}
 			if (leftInd < rightInd) { // both elements were found so swap
-
 				Swap(database, leftInd, rightInd);
 			}
 		} // loop continues until indices cross
@@ -78,8 +78,9 @@ public class sortQuick {
 		hoarePartitionReverse(database, leftInd + 1, rightBound); // right recursive call
 	}
 
+
     // ----------------------------------------------------------------
-    // Method for swapping a partition in the array.
+    // Method for swapping a partition in the array for either sort methods.
     // -----------------------------------------------------------------
     public static void Swap(List<Integer> database, int j, int i) {
 		int temp = database.get(j);
@@ -92,12 +93,14 @@ public class sortQuick {
     }
 
 
+    // ----------------------------------------------------------------
+    // Main method for testing the quick sort algorithm outside the class.
+    // -----------------------------------------------------------------
     public static void main(String[] args) {
         List<Integer> amountItems = new ArrayList<Integer>();
         for (int i = 1; i < 8; i++){
             amountItems.add(getRandomNumbers(8));
         }
-
         List<Integer> sortedList = sorterQuick(amountItems);
         List<Integer> sortedBackwards = sorterQuickReversed(amountItems);
         System.out.println("Un-sorted list: " + amountItems);
