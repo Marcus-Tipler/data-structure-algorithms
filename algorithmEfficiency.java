@@ -46,15 +46,19 @@ public class algorithmEfficiency extends sortQuick {
         // Start timing the Normal Quick Sort Method.
         for (int i = 0; i < amountItems.length; i++) {                  // FIXME: Problem, this needs to be isolated and done on an individual basis.
             week = aE.createArray(amountItems[i]);
+            System.out.println("NORMAL");
             clockStart = System.currentTimeMillis();
             weekQuickNormal = sorterQuick(week);
             clockNormal = System.currentTimeMillis();
             long deltaNormal = aE.calculateTime(clockStart, clockNormal);
+            System.out.println("REVERSED");
             weekQuickReverse = sorterQuickReversed(week);
             clockReverse = System.currentTimeMillis();
             long deltaReverse = aE.calculateTime(clockNormal, clockReverse);
-            // weekQuickSorted = sorterQuick(weekQuickNormal);          // FIXME: Problem with sorted array causes Crash.
-            // clockSorted = System.currentTimeMillis();                // FIXME: Problem with sorted array causes Crash.
+            System.out.println("SORTED");
+            weekQuickSorted = quickSort(weekQuickNormal, weekQuickNormal.size());          // FIXME: Problem with sorted array causes Crash.
+            clockSorted = System.currentTimeMillis();                // FIXME: Problem with sorted array causes Crash.
+            long deltaSorted = aE.calculateTime(clockReverse, clockSorted);
             // System.out.println(week);                                // TODO: Test Line.
             // System.out.println(weekSorted);                          // TODO: Test Line.
         }

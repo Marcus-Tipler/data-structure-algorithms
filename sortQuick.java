@@ -99,12 +99,46 @@ public class sortQuick {
     public static void main(String[] args) {
         List<Integer> amountItems = new ArrayList<Integer>();
         for (int i = 1; i < 8; i++){
-            amountItems.add(getRandomNumbers(8));
+            // amountItems.add(getRandomNumbers(8));
+            amountItems.add(1);
         }
         List<Integer> sortedList = sorterQuick(amountItems);
         List<Integer> sortedBackwards = sorterQuickReversed(amountItems);
         System.out.println("Un-sorted list: " + amountItems);
         System.out.println("Sorted list: " + sortedList);
         System.out.println("Reversed list: " + sortedBackwards);
+
+        quickSort(amountItems, amountItems.size());
+    }
+
+
+
+
+    // ----------------------------------------------------------------
+    // FIXME: TESTING ONLY
+    // ----------------------------------------------------------------
+    public static List<Integer> quickSort(List<Integer> arr, int elements) {
+        int i=0,L,R,pivot;
+        int[] beg = new int[10000], end = new int[10000]; // FIXME: 10k needs replacing in the longer term after further testing is complete. FOR BOTH.
+        beg[0]=0;
+        end[0]=elements;
+        while(i>=0) {
+            L=beg[i];
+            R=end[i]-1;
+            if(L<R) {
+                pivot=arr.get(L); if(i==10000-1) return arr; // FIXME: 10k needs replacing in the longer term after further testing is complete. (false replaced)
+                while(L<R) {
+                    while(arr.get(R) >= pivot && L < R ) R--; if(L < R) arr.set(L++, arr.get(R));
+                    while(arr.get(L) <= pivot && L < R) L++; if(L < R) arr.set(R--, arr.get(L));
+                }
+                arr.set(L, pivot);
+                beg[i+1]=L+1;
+                end[i+1]=end[i];
+                end[i++]=L;
+            } else {
+                i--;
+            }
+        }
+        return arr;
     }
 }

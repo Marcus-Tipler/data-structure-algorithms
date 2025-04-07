@@ -1,17 +1,45 @@
+NORMAL
 Execution Time: 1ms.
+REVERSED
 Execution Time: 2ms.
-Execution Time: 1ms.
+SORTED
+Execution Time: 8ms.
+NORMAL
 Execution Time: 2ms.
-Execution Time: 3ms.
-Execution Time: 3ms.
-Execution Time: 18ms.
+REVERSED
+Execution Time: 2ms.
+SORTED
+Execution Time: 121ms.
+NORMAL
+Execution Time: 4ms.
+REVERSED
+Execution Time: 4ms.
+SORTED
+Execution Time: 131ms.
+NORMAL
+Execution Time: 9ms.
+REVERSED
+Execution Time: 9ms.
+SORTED
+Execution Time: 516ms.
+NORMAL
+Execution Time: 17ms.
+REVERSED
+Execution Time: 14ms.
+SORTED
+Execution Time: 795ms.
+NORMAL
+Execution Time: 24ms.
+REVERSED
 Execution Time: 19ms.
-Execution Time: 29ms.
-Execution Time: 29ms.
-Execution Time: 43ms.
-Execution Time: 15ms.
-Execution Time: 85ms.
-Execution Time: 96ms.
+SORTED
+Execution Time: 1089ms.
+NORMAL
+Execution Time: 119ms.
+REVERSED
+Execution Time: 124ms.
+SORTED
+Execution Time: 5629ms.
 
 
 
