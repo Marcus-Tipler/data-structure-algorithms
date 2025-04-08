@@ -147,3 +147,6 @@ It's time-saving and stackoverflow-immune.
 https://stackoverflow.com/questions/33884057/quick-sort-stackoverflow-error-for-large-arrays
 
 https://alienryderflex.com/quicksort/
+
+
+C2
