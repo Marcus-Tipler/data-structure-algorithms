@@ -37,81 +37,71 @@ public class algorithmEfficiency extends sortQuick {
         int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 500000};
         
         // Initializing variables for the sorted and reversed lists.
-        List<Integer> week, weekQuickNormal, weekQuickReverse, weekQuickSorted;
-        long clockStart, clockNormal, clockReverse, clockSorted;
+        long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
+        List<Integer> day, daySorted, savedSortNormal, savedSortReverse, savedSortSorted;
+        ArrayList<List<Integer>> week = new ArrayList<>(), weekSorted = new ArrayList<>();
+        int[] sortedNormal, sortedReversed, sortedSorted;
 
-        ArrayList<List<Integer>> weeks = new ArrayList<>();
-        ArrayList<List<Integer>> weeksSortedNormal = new ArrayList<>(), weeksSortedReverse = new ArrayList<>(), weeksSortedSorted = new ArrayList<>();
         // Start timing the Normal Quick Sort Method.
         for (int i = 0; i < amountItems.length; i++) { 
-            week = aE.createArray(amountItems[i]);
-            weeks.add(week); 
+            day = aE.createArray(amountItems[i]);
+            week.add(day); 
         }
-        // System.out.println(weeks);
-        int[] weekQuickNormy, weekQuickReversy;
-        clockStart = System.currentTimeMillis();
-        for (int i = 0; i < weeks.size(); i++) {
-            week = weeks.get(i);
-            weekQuickReverse = new ArrayList<>(week);
-            // weekQuickNormal = quickSort(week, week.size());
-            weekQuickNormy = quickSort(week, week.size());
+
+
+        // Pre-computes the LOOP for NormalQuickSort with Unsorted List to make Sorted List.
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sortedNormal = quickSort(day, day.size());
+
+            daySorted = new ArrayList<>(day);
+            for (int element = 0; element < sortedNormal.length; element++) {
+                daySorted.set(element, sortedNormal[element]);
+            }
+            weekSorted = new ArrayList<>(week);
             for (i = 0; i < week.size(); i++) {
-                weekQuickReverse.set(i, weekQuickNormy[i]);
+                weekSorted.set(i, daySorted);
             }
-            weekQuickReversy = quickSort(weekQuickReverse, weekQuickReverse.size());
-            // weeksSortedNormal.add(weekQuickNormal);
-            System.out.println("Unsorted Array: ");
-            for (int element = 0; element < weekQuickNormy.length; element++) {
-                System.out.print(weekQuickNormy[element] + ", ");
-            }
-            System.out.println("\n -------------------------------------------- ");
-            System.out.println("Sorted Array: ");
-            for (int element = 0; element < weekQuickReversy.length; element++) {
-                System.out.print(weekQuickReversy[element] + ", ");
-            }
-            System.out.println("\n -------------------------------------------- ");
+        }
+
+        // Starts the LOOP & TIMER for NormalQuickSort with Unsorted List.
+        System.out.println("Normal quicksort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            quickSort(day, day.size());
         }
         clockNormal = System.currentTimeMillis();
-        System.out.println(clockNormal - clockStart);
-        // for (int i = 0; i < weeks.size(); i++) {
-        //     week = weeks.get(i);
-        //     weekQuickReverse = quickSortReverse(week, week.size());
-        //     weeksSortedReverse.add(weekQuickReverse);
-        // }
-        // clockReverse = System.currentTimeMillis();
-        // System.out.println(clockReverse - clockNormal);
-        // for (int i = 0; i < weeksSortedNormal.size(); i++) {
-        //     week = weeksSortedNormal.get(i);
-        //     weekQuickSorted = quickSort(week, week.size());
-        //     weeksSortedSorted.add(weekQuickSorted);
-        // }
-        // clockSorted = System.currentTimeMillis();
-        // System.out.println(clockSorted - clockReverse);
-        // System.out.println(weeks);
-        // for (int i = 0; i < amountItems.length; i++) {                                       // FIXME: Problem, this needs to be isolated and done on an individual basis.
-        //     week = aE.createArray(amountItems[i]);
-        //     System.out.println("NORMAL");
-        //     clockStart = System.currentTimeMillis();
-        //     weekQuickNormal = quickSort(week, week.size());
-        //     clockNormal = System.currentTimeMillis();
-        //     long deltaNormal = aE.calculateTime(clockStart, clockNormal);
-        //     System.out.println("REVERSED");
-        //     weekQuickReverse = quickSortReverse(week, week.size());
-        //     clockReverse = System.currentTimeMillis();
-        //     long deltaReverse = aE.calculateTime(clockNormal, clockReverse);
-        //     System.out.println("SORTED");
-        //     weekQuickSorted = quickSort(weekQuickNormal, weekQuickNormal.size());            // FIXME: Problem with sorted array causes Crash.
-        //     clockSorted = System.currentTimeMillis();                                        // FIXME: Problem with sorted array causes Crash.
-        //     long deltaSorted = aE.calculateTime(clockReverse, clockSorted);
-        //     System.out.println(week);                                                        // TODO: Test Line.
-        //     System.out.println(weekQuickNormal);                                             // TODO: Test Line.
-        //     System.out.println(weekQuickReverse);                                            // TODO: Test Line.
-        //     System.out.println(weekQuickSorted);                                             // TODO: Test Line.
-        // }
-        // System.out.println("\n\n");
+        clockNormal = aE.calculateTime(clockStart, clockNormal);
+
+        // Starts the LOOP & TIMER for ReverseQuickSort with Unsorted List.
+        System.out.println("Reverse quicksort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            quickSortReverse(day, day.size());
+        }
+        clockReverse = System.currentTimeMillis();
+        clockReverse = aE.calculateTime(clockStart, clockReverse);
+
+        // Starts the LOOP & TIMER for NormalQuickSort with Sorted List.
+        System.out.println("Normal quicksort algorithm with pre-sorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < weekSorted.size(); i++) { 
+            day = weekSorted.get(i);
+            quickSort(day, day.size());
+        }
+        clockSorted = System.currentTimeMillis();
+        clockSorted = aE.calculateTime(clockStart, clockSorted);
+
+        // Computes average time between three pre-computed scenario times to make a benchmark.
+        System.out.println("\nProgram Benchmark Results: ");
+        clockAverage = (clockNormal + clockReverse + clockSorted) / 3 ;
+        System.out.println("Average Execution Time: " + clockAverage + "ms");
 
 
-        // long startTime = System.currentTimeMillis();
-
+        // FIXME: TEST PRINTS FOR PROGRAM FUNCTIONALITY VERIFICATION PROCEDURES.
+        // System.out.println(week); // TODO: TEST THE GENERATION OF RANDOM VALUES FOR EVERY DAY IN VARIABLE LIST WEEK
+        // System.out.println(weekSorted); // TODO: TEST THE GENERATION OF THE SORTED RANDOM ARRAY FOR EVERY DAY IN VARIABLE LIST WEEKSORTED
     }
 }
