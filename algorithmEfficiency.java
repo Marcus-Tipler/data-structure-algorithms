@@ -194,7 +194,7 @@ public class algorithmEfficiency {
         System.out.println("\n\nBENCHMARK FOR INSERTION SORT: ");
         aE.benchmarkInsertionSort(week, weekSorted);
         System.out.println("\n\nBENCHMARK FOR HYBRID SORT: ");
-        aE.benchmarkHybridSort(week, weekSorted, 499999);
+        aE.benchmarkHybridSort(week, weekSorted, 15);
 
 
         // FIXME: TEST PRINTS FOR PROGRAM FUNCTIONALITY VERIFICATION PROCEDURES.
