@@ -37,6 +37,36 @@ public class sortHybrid {
         
         return arr;
     }
+    public int[] hybridSortQIReverse(List<Integer> Array, int elements, int threshold) {
+        int[] arr = new int[elements];
+        List<List<Integer>> subList = new ArrayList<>();
+        List<Integer> ArrayCopy = new ArrayList<>(Array);
+        for (int element = 0; element < elements; element++) {
+            arr[element] = Array.get(element);
+        }
+        if(arr.length <= 0) return arr;
+        
+        // creates sub-lists of the size of the threshold for the sort algorithms
+        for (int i = 0; i < elements; i += threshold) {
+            // Create sublist from i to i + threshold or the end of the list
+            subList.add(Array.subList(i, Math.min(i + threshold, elements)));
+        }
+
+
+        int index = 0;
+        for (int i = 0; i < subList.size(); i++) {
+            List<Integer> cache = new ArrayList<>(subList.get(i));
+            int[] cacheSorted = sI.insertionSortReverse(cache, cache.size());
+            for (int j = 0; j < cacheSorted.length; j++) {
+                ArrayCopy.set(index++, cacheSorted[j]); // Copy sorted elements back into arr
+            }
+        }
+
+        // Sort the entire array using quicksort
+        arr = sQ.quickSortReverse(ArrayCopy, ArrayCopy.size());
+        
+        return arr;
+    }
 
     public int[] hybridSortQS(List<Integer> Array, int elements, int threshold) {
         int[] arr = new int[elements];
@@ -68,6 +98,36 @@ public class sortHybrid {
         
         return arr;
     }
+    public int[] hybridSortQSReverse(List<Integer> Array, int elements, int threshold) {
+        int[] arr = new int[elements];
+        List<List<Integer>> subList = new ArrayList<>();
+        List<Integer> ArrayCopy = new ArrayList<>(Array);
+        for (int element = 0; element < elements; element++) {
+            arr[element] = Array.get(element);
+        }
+        if(arr.length <= 0) return arr;
+        
+        // creates sub-lists of the size of the threshold for the sort algorithms
+        for (int i = 0; i < elements; i += threshold) {
+            // Create sublist from i to i + threshold or the end of the list
+            subList.add(Array.subList(i, Math.min(i + threshold, elements)));
+        }
+
+
+        int index = 0;
+        for (int i = 0; i < subList.size(); i++) {
+            List<Integer> cache = new ArrayList<>(subList.get(i));
+            int[] cacheSorted = sS.selectionSortReverse(cache, cache.size());
+            for (int j = 0; j < cacheSorted.length; j++) {
+                ArrayCopy.set(index++, cacheSorted[j]); // Copy sorted elements back into arr
+            }
+        }
+
+        // Sort the entire array using quicksort
+        arr = sQ.quickSortReverse(ArrayCopy, ArrayCopy.size());
+        
+        return arr;
+    }
 
 
     public static void main(String[] args) {
@@ -81,6 +141,8 @@ public class sortHybrid {
 
         int[] sortedListQI = sH.hybridSortQI(amountItems, amountItems.size(), 16);
         int[] sortedListQS = sH.hybridSortQS(amountItems, amountItems.size(), 16);
+        int[] sortedListQIReverse = sH.hybridSortQIReverse(amountItems, amountItems.size(), 16);
+        int[] sortedListQSReverse = sH.hybridSortQSReverse(amountItems, amountItems.size(), 16);
 
         System.out.println("Un-sorted list: " + amountItems);
         System.out.println("\nSorted list QI: ");
@@ -90,6 +152,14 @@ public class sortHybrid {
         System.out.println("\nSorted list QS: ");
         for (int element = 0; element < sortedListQS.length; element++) {
             System.out.print(sortedListQS[element] + " ");
+        }
+        System.out.println("\nSorted list QI (reversed): ");
+        for (int element = 0; element < sortedListQIReverse.length; element++) {
+            System.out.print(sortedListQIReverse[element] + " ");
+        }
+        System.out.println("\nSorted list QS (reversed): ");
+        for (int element = 0; element < sortedListQSReverse.length; element++) {
+            System.out.print(sortedListQSReverse[element] + " ");
         }
     }
 }

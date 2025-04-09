@@ -1,58 +1,58 @@
 BENCHMARK FOR QUICK SORT: 
 unsorted list: 
-Execution Time: 10ms.
+Execution Time: 12ms.
 unsorted list (reversed): 
-Execution Time: 7ms.
+Execution Time: 13ms.
 pre-sorted list: 
-Execution Time: 2ms.
+Execution Time: 10ms.
 
 Program Benchmark Results: 
-Average Execution Time: 6ms
+Average Execution Time: 11ms
 
 
 BENCHMARK FOR INSERTION SORT: 
 unsorted list: 
-Execution Time: 22ms.
+Execution Time: 70ms.
 unsorted list (reversed): 
-Execution Time: 23ms.
+Execution Time: 19ms.
 pre-sorted list: 
 Execution Time: 0ms.
 
 Program Benchmark Results: 
-Average Execution Time: 15ms
+Average Execution Time: 29ms
 
 
 BENCHMARK FOR SELECTION SORT: 
 unsorted list: 
-Execution Time: 40ms.
+Execution Time: 35ms.
 unsorted list (reversed): 
-Execution Time: 36ms.
+Execution Time: 34ms.
 pre-sorted list: 
 Execution Time: 1ms.
 
 Program Benchmark Results: 
-Average Execution Time: 25ms
+Average Execution Time: 23ms
 
 
 BENCHMARK FOR HYBRID QUICK-INSERTION SORT: 
 unsorted list: 
-Execution Time: 10ms.
+Execution Time: 6ms.
 unsorted list (reversed): 
-Execution Time: 4ms.
+Execution Time: 6ms.
 pre-sorted list: 
-Execution Time: 1ms.
+Execution Time: 2ms.
 
 Program Benchmark Results: 
-Average Execution Time: 5ms
+Average Execution Time: 4ms
 
 
 BENCHMARK FOR HYBRID QUICK-SELECTION SORT: 
 unsorted list: 
 Execution Time: 6ms.
 unsorted list (reversed): 
-Execution Time: 5ms.
+Execution Time: 6ms.
 pre-sorted list: 
-Execution Time: 1ms.
+Execution Time: 2ms.
 
 Program Benchmark Results: 
 Average Execution Time: 4ms

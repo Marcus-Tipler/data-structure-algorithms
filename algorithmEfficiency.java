@@ -174,7 +174,7 @@ public class algorithmEfficiency {
         clockStart = System.currentTimeMillis();
         for (int i = 0; i < week.size(); i++) { 
             day = week.get(i);
-            sH.hybridSortQI(day, day.size(), threshold); // FIXME: Needs REVERSE.
+            sH.hybridSortQIReverse(day, day.size(), threshold);
         }
         clockReverse = System.currentTimeMillis();
         clockReverse = calculateTime(clockStart, clockReverse);
@@ -213,7 +213,7 @@ public class algorithmEfficiency {
         clockStart = System.currentTimeMillis();
         for (int i = 0; i < week.size(); i++) { 
             day = week.get(i);
-            sH.hybridSortQS(day, day.size(), threshold); // FIXME: Needs REVERSE.
+            sH.hybridSortQSReverse(day, day.size(), threshold);
         }
         clockReverse = System.currentTimeMillis();
         clockReverse = calculateTime(clockStart, clockReverse);
