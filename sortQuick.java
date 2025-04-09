@@ -12,7 +12,7 @@ public class sortQuick {
             arr[element] = Array.get(element);
         }
         if(arr.length <= 0) return arr;
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
 
         stack.push(0);
         stack.push(arr.length - 1);
@@ -38,7 +38,7 @@ public class sortQuick {
             arr[element] = Array.get(element);
         }
         if(arr.length <= 0) return arr;
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
 
         stack.push(0);
         stack.push(arr.length - 1);

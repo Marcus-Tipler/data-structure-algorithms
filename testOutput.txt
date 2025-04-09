@@ -1,9 +1,9 @@
 Normal quicksort algorithm with unsorted list: 
-Execution Time: 99ms.
+Execution Time: 97ms.
 Reverse quicksort algorithm with unsorted list: 
-Execution Time: 87ms.
+Execution Time: 86ms.
 Normal quicksort algorithm with pre-sorted list: 
 Execution Time: 2ms.
 
 Program Benchmark Results: 
-Average Execution Time: 62ms
+Average Execution Time: 61ms
