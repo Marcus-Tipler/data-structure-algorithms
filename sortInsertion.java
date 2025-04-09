@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class sortInsertion {
-    public static int[] insertionSort(List<Integer> Array, int elements){
+    public int[] insertionSort(List<Integer> Array, int elements){
 
         int[] arr = new int[elements];
         for (int element = 0; element < elements; element++) {
@@ -24,13 +24,15 @@ public class sortInsertion {
 
 
     public static void main(String[] args) {
+        sortInsertion sI = new sortInsertion();
+
         List<Integer> amountItems = new ArrayList<>();
         for (int i = 1; i < 8; i++){
             // amountItems.add(getRandomNumbers(8));
             amountItems.add(i);
         }
 
-        int[] sortedList = insertionSort(amountItems, amountItems.size());
+        int[] sortedList = sI.insertionSort(amountItems, amountItems.size());
 
         System.out.println("Un-sorted list: " + amountItems);
         System.out.print("Sorted list: ");
