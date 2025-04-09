@@ -295,5 +295,5 @@ public class benchmarkHuman {
         // prints the benchmark results in a human-readable format.
         bH.printHumanReadable(week, weekSorted);
     }
-    
+
 }

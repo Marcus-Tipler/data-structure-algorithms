@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class algorithmEfficiency {
+public class benchmarkRun {
 
-    public algorithmEfficiency() {
+    public benchmarkRun() {
         super();
     }
 
@@ -21,7 +21,7 @@ public class algorithmEfficiency {
     // ----------------------------------------------------------
     public static void main(String[] args) {
         // Create a new instance of the java class (common practice).
-        algorithmEfficiency aE = new algorithmEfficiency();
+        benchmarkRun bR = new benchmarkRun();
 
         // Variables for array sizes per day.
         int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 7000};
