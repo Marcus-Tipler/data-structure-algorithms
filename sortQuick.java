@@ -6,7 +6,7 @@ public class sortQuick {
     // ----------------------------------------------------------------
     // Declares values for quick sort and reversed quick sort methods.
     // ----------------------------------------------------------------
-    public static int[] quickSort(List<Integer> Array, int elements) {
+    public int[] quickSort(List<Integer> Array, int elements) {
         int[] arr = new int[elements];
         for (int element = 0; element < elements; element++) {
             arr[element] = Array.get(element);
@@ -32,7 +32,7 @@ public class sortQuick {
         }
         return arr;
     }
-    public static int[] quickSortReverse(List<Integer> Array, int elements) {
+    public int[] quickSortReverse(List<Integer> Array, int elements) {
         int[] arr = new int[elements];
         for (int element = 0; element < elements; element++) {
             arr[element] = Array.get(element);
@@ -58,7 +58,7 @@ public class sortQuick {
         }
         return arr;
     }
-    private static int partition(int[] arr, int low, int high){
+    private int partition(int[] arr, int low, int high){
         if(arr.length <= 0) return -1;
         if(low >= high) return -1;
         int l = low;
@@ -78,7 +78,7 @@ public class sortQuick {
         arr[l] = pivot;
         return l;
     }
-    private static int partitionReverse(int[] arr, int low, int high){
+    private int partitionReverse(int[] arr, int low, int high){
         if(arr.length <= 0) return -1;
         if(low >= high) return -1;
         int l = low;
@@ -103,6 +103,9 @@ public class sortQuick {
     // Main method for testing the quick sort algorithm outside the class.
     // -----------------------------------------------------------------
     public static void main(String[] args) {
+        sortQuick sQ = new sortQuick();
+
+
         List<Integer> amountItems = new ArrayList<>();
         for (int i = 1; i < 8; i++){
             // amountItems.add(getRandomNumbers(8));
@@ -110,8 +113,8 @@ public class sortQuick {
         }
         // List<Integer> sortedList = quickSort(amountItems, amountItems.size());
         // List<Integer> sortedBackwards = quickSortReverse(amountItems, amountItems.size());
-        int[] sortedList = quickSort(amountItems, amountItems.size());
-        int[] sortedListReverse = quickSortReverse(amountItems, amountItems.size());
+        int[] sortedList = sQ.quickSort(amountItems, amountItems.size());
+        int[] sortedListReverse = sQ.quickSortReverse(amountItems, amountItems.size());
 
         System.out.println("Un-sorted list: " + amountItems);
         System.out.print("Sorted list: ");
@@ -126,6 +129,6 @@ public class sortQuick {
         System.out.println("");
         // System.out.println("Reversed list: " + sortedBackwards);
 
-        quickSort(amountItems, amountItems.size());
+        sQ.quickSort(amountItems, amountItems.size());
     }
 }

@@ -1,11 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class algorithmEfficiency extends sortQuick {
+public class algorithmEfficiency {
 
     public algorithmEfficiency() {
         super();
     }
+
+    // private static sortQuick sQ;
+    // private static sortInsertion sI;
+    static sortHybrid sH = new sortHybrid();
+    static sortQuick sQ = new sortQuick();
+    static sortInsertion sI = new sortInsertion();
 
 
     public List<Integer> createArray(int amountItems) {
@@ -30,6 +36,125 @@ public class algorithmEfficiency extends sortQuick {
         return clockDelta;
     }
 
+    public void benchmarkQuickSort(ArrayList<List<Integer>> week, ArrayList<List<Integer>> weekSorted) {
+        List<Integer> day;
+        long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
+        // Starts the LOOP & TIMER for NormalQuickSort with Unsorted List.
+        System.out.println("Normal quicksort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sQ.quickSort(day, day.size());
+        }
+        clockNormal = System.currentTimeMillis();
+        clockNormal = calculateTime(clockStart, clockNormal);
+
+        // Starts the LOOP & TIMER for ReverseQuickSort with Unsorted List.
+        System.out.println("Reverse quicksort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sQ.quickSortReverse(day, day.size());
+        }
+        clockReverse = System.currentTimeMillis();
+        clockReverse = calculateTime(clockStart, clockReverse);
+
+        // Starts the LOOP & TIMER for NormalQuickSort with Sorted List.
+        System.out.println("Normal quicksort algorithm with pre-sorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < weekSorted.size(); i++) { 
+            day = weekSorted.get(i);
+            sQ.quickSort(day, day.size());
+        }
+        clockSorted = System.currentTimeMillis();
+        clockSorted = calculateTime(clockStart, clockSorted);
+
+        // Computes average time between three pre-computed scenario times to make a benchmark.
+        System.out.println("\nProgram Benchmark Results: ");
+        clockAverage = (clockNormal + clockReverse + clockSorted) / 3 ;
+        System.out.println("Average Execution Time: " + clockAverage + "ms");
+    }
+
+
+    public void benchmarkInsertionSort(ArrayList<List<Integer>> week, ArrayList<List<Integer>> weekSorted) {
+        List<Integer> day;
+        long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
+        // Starts the LOOP & TIMER for NormalQuickSort with Unsorted List.
+        System.out.println("Normal insertionsort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sI.insertionSort(day, day.size());
+        }
+        clockNormal = System.currentTimeMillis();
+        clockNormal = calculateTime(clockStart, clockNormal);
+
+        // Starts the LOOP & TIMER for ReverseQuickSort with Unsorted List.
+        System.out.println("Reverse insertionsort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sI.insertionSort(day, day.size()); // FIXME: Needs REVERSE.
+        }
+        clockReverse = System.currentTimeMillis();
+        clockReverse = calculateTime(clockStart, clockReverse);
+
+        // Starts the LOOP & TIMER for NormalQuickSort with Sorted List.
+        System.out.println("Normal insertionsort algorithm with pre-sorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < weekSorted.size(); i++) { 
+            day = weekSorted.get(i);
+            sI.insertionSort(day, day.size());
+        }
+        clockSorted = System.currentTimeMillis();
+        clockSorted = calculateTime(clockStart, clockSorted);
+
+        // Computes average time between three pre-computed scenario times to make a benchmark.
+        System.out.println("\nProgram Benchmark Results: ");
+        clockAverage = (clockNormal + clockReverse + clockSorted) / 3 ;
+        System.out.println("Average Execution Time: " + clockAverage + "ms");
+    }
+
+
+    public void benchmarkHybridSort(ArrayList<List<Integer>> week, ArrayList<List<Integer>> weekSorted, int threshold) {
+        List<Integer> day;
+        long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
+        // Starts the LOOP & TIMER for NormalQuickSort with Unsorted List.
+        System.out.println("Normal hybridsort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sH.hybridSort(day, day.size(), threshold);
+        }
+        clockNormal = System.currentTimeMillis();
+        clockNormal = calculateTime(clockStart, clockNormal);
+
+        // Starts the LOOP & TIMER for ReverseQuickSort with Unsorted List.
+        System.out.println("Reverse hybridsort algorithm with unsorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < week.size(); i++) { 
+            day = week.get(i);
+            sH.hybridSort(day, day.size(), threshold); // FIXME: Needs REVERSE.
+        }
+        clockReverse = System.currentTimeMillis();
+        clockReverse = calculateTime(clockStart, clockReverse);
+
+        // Starts the LOOP & TIMER for NormalQuickSort with Sorted List.
+        System.out.println("Normal hybridsort algorithm with pre-sorted list: ");
+        clockStart = System.currentTimeMillis();
+        for (int i = 0; i < weekSorted.size(); i++) { 
+            day = weekSorted.get(i);
+            sH.hybridSort(day, day.size(), threshold);
+        }
+        clockSorted = System.currentTimeMillis();
+        clockSorted = calculateTime(clockStart, clockSorted);
+
+        // Computes average time between three pre-computed scenario times to make a benchmark.
+        System.out.println("\nProgram Benchmark Results: ");
+        clockAverage = (clockNormal + clockReverse + clockSorted) / 3 ;
+        System.out.println("Average Execution Time: " + clockAverage + "ms");
+    }
+
 
     public static void main(String[] args) {
         // Create a new instance of the java class (common practice).
@@ -39,7 +164,6 @@ public class algorithmEfficiency extends sortQuick {
         int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 500000};
         
         // Initializing variables for the sorted and reversed lists.
-        long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
         List<Integer> day, daySorted;
         ArrayList<List<Integer>> week = new ArrayList<>(), weekSorted = new ArrayList<>();
         int[] sortedNormal;
@@ -53,7 +177,7 @@ public class algorithmEfficiency extends sortQuick {
         // Pre-computes the LOOP for NormalQuickSort with Unsorted List to make Sorted List.
         for (int i = 0; i < week.size(); i++) { 
             day = week.get(i);
-            sortedNormal = quickSort(day, day.size());
+            sortedNormal = sQ.quickSort(day, day.size());
 
             daySorted = new ArrayList<>(day);
             for (int element = 0; element < sortedNormal.length; element++) {
@@ -65,40 +189,12 @@ public class algorithmEfficiency extends sortQuick {
             }
         }
 
-        // Starts the LOOP & TIMER for NormalQuickSort with Unsorted List.
-        System.out.println("Normal quicksort algorithm with unsorted list: ");
-        clockStart = System.currentTimeMillis();
-        for (int i = 0; i < week.size(); i++) { 
-            day = week.get(i);
-            quickSort(day, day.size());
-        }
-        clockNormal = System.currentTimeMillis();
-        clockNormal = aE.calculateTime(clockStart, clockNormal);
-
-        // Starts the LOOP & TIMER for ReverseQuickSort with Unsorted List.
-        System.out.println("Reverse quicksort algorithm with unsorted list: ");
-        clockStart = System.currentTimeMillis();
-        for (int i = 0; i < week.size(); i++) { 
-            day = week.get(i);
-            quickSortReverse(day, day.size());
-        }
-        clockReverse = System.currentTimeMillis();
-        clockReverse = aE.calculateTime(clockStart, clockReverse);
-
-        // Starts the LOOP & TIMER for NormalQuickSort with Sorted List.
-        System.out.println("Normal quicksort algorithm with pre-sorted list: ");
-        clockStart = System.currentTimeMillis();
-        for (int i = 0; i < weekSorted.size(); i++) { 
-            day = weekSorted.get(i);
-            quickSort(day, day.size());
-        }
-        clockSorted = System.currentTimeMillis();
-        clockSorted = aE.calculateTime(clockStart, clockSorted);
-
-        // Computes average time between three pre-computed scenario times to make a benchmark.
-        System.out.println("\nProgram Benchmark Results: ");
-        clockAverage = (clockNormal + clockReverse + clockSorted) / 3 ;
-        System.out.println("Average Execution Time: " + clockAverage + "ms");
+        System.out.println("BENCHMARK FOR QUICK SORT: ");
+        aE.benchmarkQuickSort(week, weekSorted);
+        System.out.println("\n\nBENCHMARK FOR INSERTION SORT: ");
+        aE.benchmarkInsertionSort(week, weekSorted);
+        System.out.println("\n\nBENCHMARK FOR HYBRID SORT: ");
+        aE.benchmarkHybridSort(week, weekSorted, 499999);
 
 
         // FIXME: TEST PRINTS FOR PROGRAM FUNCTIONALITY VERIFICATION PROCEDURES.
