@@ -1,34 +1,58 @@
 BENCHMARK FOR QUICK SORT: 
-Normal quicksort algorithm with unsorted list: 
-Execution Time: 101ms.
-Reverse quicksort algorithm with unsorted list: 
-Execution Time: 85ms.
-Normal quicksort algorithm with pre-sorted list: 
-Execution Time: 3ms.
+unsorted list: 
+Execution Time: 10ms.
+unsorted list (reversed): 
+Execution Time: 7ms.
+pre-sorted list: 
+Execution Time: 2ms.
 
 Program Benchmark Results: 
-Average Execution Time: 63ms
+Average Execution Time: 6ms
 
 
 BENCHMARK FOR INSERTION SORT: 
-Normal insertionsort algorithm with unsorted list: 
-Execution Time: 27362ms.
-Reverse insertionsort algorithm with unsorted list: 
-Execution Time: 27283ms.
-Normal insertionsort algorithm with pre-sorted list: 
+unsorted list: 
+Execution Time: 22ms.
+unsorted list (reversed): 
+Execution Time: 23ms.
+pre-sorted list: 
+Execution Time: 0ms.
+
+Program Benchmark Results: 
+Average Execution Time: 15ms
+
+
+BENCHMARK FOR SELECTION SORT: 
+unsorted list: 
+Execution Time: 40ms.
+unsorted list (reversed): 
+Execution Time: 36ms.
+pre-sorted list: 
 Execution Time: 1ms.
 
 Program Benchmark Results: 
-Average Execution Time: 18215ms
+Average Execution Time: 25ms
 
 
-BENCHMARK FOR HYBRID SORT: 
-Normal hybridsort algorithm with unsorted list: 
-Execution Time: 98ms.
-Reverse hybridsort algorithm with unsorted list: 
-Execution Time: 82ms.
-Normal hybridsort algorithm with pre-sorted list: 
-Execution Time: 6ms.
+BENCHMARK FOR HYBRID QUICK-INSERTION SORT: 
+unsorted list: 
+Execution Time: 10ms.
+unsorted list (reversed): 
+Execution Time: 4ms.
+pre-sorted list: 
+Execution Time: 1ms.
 
 Program Benchmark Results: 
-Average Execution Time: 62ms
+Average Execution Time: 5ms
+
+
+BENCHMARK FOR HYBRID QUICK-SELECTION SORT: 
+unsorted list: 
+Execution Time: 6ms.
+unsorted list (reversed): 
+Execution Time: 5ms.
+pre-sorted list: 
+Execution Time: 1ms.
+
+Program Benchmark Results: 
+Average Execution Time: 4ms
