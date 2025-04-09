@@ -7,14 +7,16 @@ public class algorithmEfficiency extends sortQuick {
         super();
     }
 
+
     public List<Integer> createArray(int amountItems) {
-        List<Integer> itemsWeek = new ArrayList<Integer>();
+        List<Integer> itemsWeek = new ArrayList<>();
         for (int i = 0; i < amountItems; i++) {
             int intRandom = getRandomNumber(amountItems);
             itemsWeek.add(intRandom);
         }
         return itemsWeek;
     }
+
 
     public int getRandomNumber(int max) {
         return (int) ((Math.random() * (max - 1)) + 1);
@@ -38,16 +40,15 @@ public class algorithmEfficiency extends sortQuick {
         
         // Initializing variables for the sorted and reversed lists.
         long clockStart, clockNormal, clockReverse, clockSorted, clockAverage;
-        List<Integer> day, daySorted, savedSortNormal, savedSortReverse, savedSortSorted;
+        List<Integer> day, daySorted;
         ArrayList<List<Integer>> week = new ArrayList<>(), weekSorted = new ArrayList<>();
-        int[] sortedNormal, sortedReversed, sortedSorted;
+        int[] sortedNormal;
 
         // Start timing the Normal Quick Sort Method.
         for (int i = 0; i < amountItems.length; i++) { 
             day = aE.createArray(amountItems[i]);
             week.add(day); 
         }
-
 
         // Pre-computes the LOOP for NormalQuickSort with Unsorted List to make Sorted List.
         for (int i = 0; i < week.size(); i++) { 
