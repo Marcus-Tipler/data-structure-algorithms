@@ -229,9 +229,9 @@ public class benchmarkComputer {
         System.out.println("");
         benchmarkSelectionSort(week, weekSorted);
         System.out.println("");
-        benchmarkHybridSortQI(week, weekSorted, 15);
+        benchmarkHybridSortQI(week, weekSorted, 16);
         System.out.println("");
-        benchmarkHybridSortQS(week, weekSorted, 15);
+        benchmarkHybridSortQS(week, weekSorted, 6);
     }
 
 
@@ -243,7 +243,7 @@ public class benchmarkComputer {
         benchmarkComputer bC = new benchmarkComputer();
 
         // Variables for array sizes per day.
-        int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 7000};
+        int[] amountItems = {1000, 5000, 10000, 50000, 75000, 100000, 500000};
         
         // Initializing variables for the sorted and reversed lists.
         List<Integer> day, daySorted;
