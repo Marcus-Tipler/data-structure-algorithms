@@ -76,7 +76,19 @@ public class MyArrayQueue {
      * @param theElement
      */
     public void enqueue(Object theElement) {
-        // your code here
+        if (isFull()) {
+            // double the size of the queue
+            Object[] newQueue = new Object[queue.length * 2];
+            // copy elements to new queue
+            for (int i = 0; i < numElements; i++) {
+                newQueue[i] = queue[(front + i) % queue.length];
+            }
+            front = 0;
+            queue = newQueue;
+        }
+        // add the element to the end of the queue
+        queue[(front + numElements) % queue.length] = theElement;
+        numElements++;
     }
 
     /**
@@ -89,7 +101,14 @@ public class MyArrayQueue {
      * @throws IllegalStateException
      */
     public Object dequeue() throws IllegalStateException {
-        // your code here
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+        Object removedElement = queue[front];
+        queue[front] = null; // clear the reference to the removed element
+        front = (front + 1) % queue.length; // move front pointer
+        numElements--;
+        return removedElement;
     }
 
     /**

@@ -250,9 +250,9 @@ public class benchmarkHuman {
         System.out.println("\n\nBENCHMARK FOR SELECTION SORT: ");
         benchmarkSelectionSort(week, weekSorted);
         System.out.println("\n\nBENCHMARK FOR HYBRID QUICK-INSERTION SORT: ");
-        benchmarkHybridSortQI(week, weekSorted, 15);
+        benchmarkHybridSortQI(week, weekSorted, 16);
         System.out.println("\n\nBENCHMARK FOR HYBRID QUICK-SELECTION SORT: ");
-        benchmarkHybridSortQS(week, weekSorted, 15);
+        benchmarkHybridSortQS(week, weekSorted, 6);
     }
 
 
@@ -264,7 +264,7 @@ public class benchmarkHuman {
         benchmarkHuman bH = new benchmarkHuman();
 
         // Variables for array sizes per day.
-        int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 7000};
+        int[] amountItems = {1000, 5000, 10000, 50000, 75000, 100000, 500000};
         
         // Initializing variables for the sorted and reversed lists.
         List<Integer> day, daySorted;

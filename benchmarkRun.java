@@ -24,7 +24,7 @@ public class benchmarkRun {
         benchmarkRun bR = new benchmarkRun();
 
         // Variables for array sizes per day.
-        int[] amountItems = {1000, 2000, 3000, 4000, 5000, 6000, 7000};
+        int[] amountItems = {1000, 5000, 10000, 50000, 75000, 100000, 500000};
         
         // Initializing variables for the sorted and reversed lists.
         List<Integer> day, daySorted;
