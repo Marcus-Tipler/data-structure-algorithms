@@ -1,0 +1,8 @@
+Your submission was successful!
+Course: 2425-CM1210, 24/25-CM1210 Object Oriented Java Programming
+Assessment: Coursework 2 - Data Structures and Algorithms in Java
+
+Submission date: 10/04/2025, 23:46 (UTC+1)
+Submission size: 13.9 MB
+Submitter: Marcus Tipler
+Confirmation number: 77c9841a9eac43debe84d85a3d8515d5
