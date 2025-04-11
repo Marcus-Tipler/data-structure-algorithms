@@ -1,0 +1,1 @@
+Colourblind Colour Profiles for Graphshttps://github.com/killiansheriff/LovelyPlots/blob/master/figs/colors/colorsblind10.pngPersonal GitHub repository with More Informationhttps://github.com/Marcus-Tipler/data-structure-algorithms

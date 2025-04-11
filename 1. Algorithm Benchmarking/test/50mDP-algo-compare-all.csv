@@ -1,0 +1,6 @@
+title;normalsort;reversesort;sortedsort;averagetime
+quicksort;131;122;2;85
+insertionsort;29431;29191;0;19540
+selectionsort;63722;63813;2;42512
+hybridqisort;123;120;2;81
+hybridqssort;132;123;2;85
